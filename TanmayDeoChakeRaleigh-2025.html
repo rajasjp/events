@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanmay Deochake Live!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- Color Palette Inspired by the Poster --- */
+        :root {
+            --background-light: #FFFBEB;
+            --text-dark: #44403C;
+            --accent-yellow: #FACC15;
+            --accent-orange: #FB923C;
+            --accent-red: #DC2626;
+            --accent-teal: #145369;
+            --body-bg: #f0f0f0; /* Background for the area outside the wrapper */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--body-bg); /* Apply background to body */
+            color: var(--text-dark);
+            min-height: 100vh; /* Ensure body takes full height */
+        }
+
+        /* --- Page Wrapper for 75% Width --- */
+        .page-wrapper {
+            max-width: 75%;         /* Limit width on larger screens */
+            min-height: 100vh;      /* Ensure wrapper fills height */
+            margin: 0 auto;         /* Center the wrapper horizontally */
+            background-color: var(--background-light); /* Background for the content area */
+            box-shadow: 0 0 20px rgba(0,0,0,0.15); /* Optional: shadow for definition */
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            box-sizing: border-box; /* Include padding/border in element's total width/height */
+        }
+
+        header {
+            padding: 20px 15px;
+            background-color: var(--accent-orange);
+            color: white;
+            width: 100%; /* Ensure header takes full width of wrapper */
+            box-sizing: border-box;
+        }
+
+        header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: var(--accent-teal);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        header p {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8em;
+            line-height: 1.5;
+            max-width: 800px; /* Keep text width constrained */
+            margin: 10px auto 0 auto; /* Center paragraph within header */
+            font-weight: 500;
+            color: var(--background-light);
+            padding: 0 10px; /* Add horizontal padding within the paragraph */
+            box-sizing: border-box;
+        }
+
+        main {
+            flex-grow: 1; /* Allows main to fill space between header/footer */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 15px; /* Adjusted padding */
+            overflow: hidden; /* Prevent image overflow issues */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .poster-image {
+            display: block;
+            max-width: 100%; /* Image width relative to main container padding */
+            max-height: 65vh; /* Adjusted max-height */
+            height: auto;
+            width: auto; /* Let height control size if it hits max-height first */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 5px solid var(--accent-teal);
+            box-sizing: border-box;
+        }
+
+        /* --- Footer Layout --- */
+        footer {
+            padding: 25px 20px; /* Adjusted padding */
+            background-color: var(--accent-teal);
+            color: var(--background-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .contact-info {
+            text-align: left;
+            flex-basis: 45%;
+            min-width: 220px; /* Adjusted min-width */
+        }
+
+        .contact-info h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--accent-yellow);
+        }
+
+        .contact-info p {
+            margin: 0;
+            font-size: 0.9em; /* Slightly smaller contact font */
+            line-height: 1.6;
+        }
+
+        .qr-section {
+             text-align: center;
+             flex-basis: 45%;
+             min-width: 220px; /* Adjusted min-width */
+        }
+
+        .qr-section p {
+             margin-top: 0;
+             margin-bottom: 15px;
+             font-weight: 500;
+             font-size: 1.1em;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px; /* Adjusted gap */
+        }
+
+        .qr-link {
+            text-align: center;
+        }
+
+        .qr-link a {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        .qr-code {
+            width: 85px; /* Adjusted size */
+            height: 85px;
+            display: block;
+            margin: 0 auto 8px auto;
+            background-color: #fff;
+            border: 2px solid var(--accent-yellow);
+            padding: 3px;
+            box-sizing: border-box;
+        }
+
+        .qr-link span {
+             font-size: 0.85em; /* Adjusted size */
+             display: block;
+             color: var(--background-light);
+        }
+        /* --- End Footer Styling --- */
+
+
+        /* ========================== */
+        /* --- Smartphone Layout --- */
+        /* ========================== */
+
+        /* Medium screens (Tablets) & Mobile Landscape */
+        @media (max-width: 992px) { /* Adjust breakpoint for wrapper width change */
+            .page-wrapper {
+                max-width: 90%; /* Use more width on medium screens */
+            }
+            .poster-image {
+                 max-height: 60vh;
+            }
+        }
+
+        /* Smaller screens (Tablets/Large Phones) */
+        @media (max-width: 768px) {
+             .page-wrapper {
+                max-width: 100%; /* Use full width */
+                box-shadow: none; /* Remove shadow on mobile */
+             }
+             header h1 {
+                font-size: 2.2em; /* Adjust font size */
+             }
+             header p {
+                font-size: 1.6em; /* Adjust font size */
+             }
+             footer {
+                 justify-content: center; /* Center items when stacked */
+                 text-align: center;
+                 padding: 20px 15px; /* Adjust padding */
+                 gap: 30px; /* Increase gap between stacked sections */
+             }
+             .contact-info, .qr-section {
+                 flex-basis: 100%; /* Make sections full width */
+                 min-width: auto;
+                 text-align: center;
+             }
+             .qr-section {
+                 margin-top: 0; /* Remove top margin if stacked via gap */
+             }
+        }
+
+        /* Small screens (Phones) */
+        @media (max-width: 600px) {
+            header {
+                padding: 15px 10px; /* Reduce padding */
+            }
+            header h1 {
+                font-size: 1.9em;
+            }
+            header p {
+                font-size: 1.4em;
+                line-height: 1.4;
+            }
+            main {
+                padding: 20px 10px; /* Reduce padding */
+            }
+            .poster-image {
+                max-height: 50vh; /* Further reduce image height */
+                border-width: 3px;
+            }
+            .contact-info h3, .qr-section p {
+                 font-size: 1em; /* Adjust heading sizes */
+             }
+            .contact-info p {
+                 font-size: 0.85em; /* Adjust text size */
+             }
+            .qr-code {
+                width: 75px; /* Adjust QR size */
+                height: 75px;
+            }
+            .qr-link span {
+                 font-size: 0.8em; /* Adjust label size */
+            }
+            .social-links {
+                gap: 10px; /* Adjust gap */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <header>
+            <h1>Tanmay Deochake</h1>
+            <p>
+                Prepare to be mesmerized by the soulful melodies of the harmonium master, Tanmay Deochake. Experience "The Sound of Home" as he brings his unique blend of traditional and contemporary sounds to the stage. A captivating performance you won't want to miss!
+            </p>
+        </header>
+
+        <main>
+            <img src="tanmay-deochake-poster.jpg" alt="Concert Poster for Tanmay Deochake's Swadesh" class="poster-image">
+        </main>
+
+        <footer>
+            <div class="contact-info">
+                <h3>For details and tickets, contact:</h3>
+                <p>
+                    Sandesh Joshi (919-995-0570)<br>
+                    Rajas Pimpalwadkar (919-924-8843)<br>
+                    Aadi Singh (408-509-8333)<br>
+                    Praneet Athalye (919-771-6235)
+                </p>
+            </div>
+
+            <div class="qr-section">
+                 <p>Scan to Connect with Tanmay Deochake:</p>
+                 <div class="social-links">
+                    <div class="qr-link">
+                        <a href="#" target="_blank" title="YouTube">
+                            <img src="tanmay_yt_qr.jpg" alt="QR Code for YouTube" class="qr-code">
+                            <span>YouTube</span>
+                         </a>
+                    </div>
+                    <div class="qr-link">
+                         <a href="#" target="_blank" title="Facebook">
+                             <img src="tanmay_fb_qr.jpg" alt="QR Code for Facebook" class="qr-code">
+                             <span>Facebook</span>
+                         </a>
+                    </div>
+                     <div class="qr-link">
+                         <a href="#" target="_blank" title="Instagram">
+                             <img src="tanmay_insta_qr.jpg" alt="QR Code for Instagram" class="qr-code">
+                             <span>Instagram</span>
+                         </a>
+                    </div>
+                    </div>
+            </div>
+        </footer>
+    </div> </body>
+</html>
